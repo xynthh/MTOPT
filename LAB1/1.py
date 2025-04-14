@@ -53,7 +53,4 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-
 print (f"Минимум функции: {f_min_half}", f"Количество итераций: {k_half}", f"Точка минимума: {x_min_half}")
-
-
