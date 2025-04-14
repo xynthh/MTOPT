@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def target_function(x):
-    return x**3+3*x**2-3
+    return x**3 + 3 * x**2 - 3
+
 
 def fibonacci_number(n):
     if n <= 1:
@@ -12,6 +14,7 @@ def fibonacci_number(n):
         a, b = b, a + b
     return b
 
+
 def required_fibonacci_n(length_ratio):
     a, b = 0, 1
     n = 1
@@ -19,6 +22,7 @@ def required_fibonacci_n(length_ratio):
         a, b = b, a + b
         n += 1
     return n
+
 
 def fibonacci_minimization():
     # Исходные данные
@@ -34,8 +38,12 @@ def fibonacci_minimization():
     N = required_fibonacci_n(initial_length / epsilon)
     print(f"Количество итераций N = {N}")
 
-    point_y = interval_start + (fibonacci_number(N - 2) / fibonacci_number(N)) * (interval_end - interval_start)
-    point_z = interval_start + (fibonacci_number(N - 1) / fibonacci_number(N)) * (interval_end - interval_start)
+    point_y = interval_start + (fibonacci_number(N - 2) / fibonacci_number(N)) * (
+        interval_end - interval_start
+    )
+    point_z = interval_start + (fibonacci_number(N - 1) / fibonacci_number(N)) * (
+        interval_end - interval_start
+    )
 
     print(f"\nНачальные точки:\n  y0 = {point_y}\n  z0 = {point_z}")
 
@@ -50,11 +58,17 @@ def fibonacci_minimization():
         if f_y <= f_z:
             interval_end = point_z
             point_z = point_y
-            point_y = interval_start + (fibonacci_number(N - iteration - 3) / fibonacci_number(N - iteration - 1)) * (interval_end - interval_start)
+            point_y = interval_start + (
+                fibonacci_number(N - iteration - 3)
+                / fibonacci_number(N - iteration - 1)
+            ) * (interval_end - interval_start)
         else:
             interval_start = point_y
             point_y = point_z
-            point_z = interval_start + (fibonacci_number(N - iteration - 2) / fibonacci_number(N - iteration - 1)) * (interval_end - interval_start)
+            point_z = interval_start + (
+                fibonacci_number(N - iteration - 2)
+                / fibonacci_number(N - iteration - 1)
+            ) * (interval_end - interval_start)
 
         iteration += 1
         intervals_history.append((interval_start, interval_end))
@@ -84,18 +98,19 @@ def fibonacci_minimization():
     y_values = target_function(x_values)
 
     plt.figure(figsize=(10, 6))
-    plt.plot(x_values, y_values, label='f(x)', linewidth=2)
-    plt.axvline(x=min_x, color='red', linestyle='--', label=f'x* ≈ {min_x:.3f}')
-    plt.scatter([min_x], [min_value], color='red', zorder=5)
-    plt.title('Минимум функции методом Фибоначчи', fontsize=14)
-    plt.xlabel('x')
-    plt.ylabel('f(x)')
+    plt.plot(x_values, y_values, label="f(x)", linewidth=2)
+    plt.axvline(x=min_x, color="red", linestyle="--", label=f"x* ≈ {min_x:.3f}")
+    plt.scatter([min_x], [min_value], color="red", zorder=5)
+    plt.title("Минимум функции методом Фибоначчи", fontsize=14)
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
     plt.grid(True)
     plt.legend()
 
     for a, b in intervals_history:
-        plt.axvspan(a, b, alpha=0.1, color='green')
+        plt.axvspan(a, b, alpha=0.1, color="green")
 
     plt.show()
+
 
 fibonacci_minimization()
