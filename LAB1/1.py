@@ -10,6 +10,7 @@ a, b = -1, 1
 epsilon = 0.2
 
 
+# Метод половинного деления
 def half_method(f, a, b, epsilon):
     iterations = []
     k = 0
