@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def f(x):
-    return x**3 + 3 * x**2 - 3
+    return x ** 3 + 3 * x ** 2 - 3
 
 
 a, b = -1, 1
@@ -79,7 +79,7 @@ def number_1():
             [y_i, c_i, z_i],
             [fy_i, fc_i, fz_i],
             "o",
-            label=f"iter {i+1}" if i == 0 else "",
+            label=f"iter {i + 1}" if i == 0 else "",
         )
     plt.axvline(x_min_half, color="gray", ls="--", label=f"x*={x_min_half:.3f}")
     plt.title("Метод половинного деления")
@@ -159,7 +159,7 @@ def number_2():
                 [y_i, z_i],
                 [f(y_i), f(z_i)],
                 "o",
-                label=f"Итерация {i+1}" if i == 0 else "",
+                label=f"Итерация {i + 1}" if i == 0 else "",
             )
 
         plt.axvline(x_star, color="red", linestyle="--", label=f"x* ≈ {x_star:.3f}")
@@ -217,10 +217,10 @@ def number_3():
         print(f"Количество итераций N = {N}")
 
         point_y = interval_start + (fibonacci_number(N - 2) / fibonacci_number(N)) * (
-            interval_end - interval_start
+                interval_end - interval_start
         )
         point_z = interval_start + (fibonacci_number(N - 1) / fibonacci_number(N)) * (
-            interval_end - interval_start
+                interval_end - interval_start
         )
 
         print(f"\nНачальные точки:\n  y0 = {point_y}\n  z0 = {point_z}")
@@ -237,15 +237,15 @@ def number_3():
                 interval_end = point_z
                 point_z = point_y
                 point_y = interval_start + (
-                    fibonacci_number(N - iteration - 3)
-                    / fibonacci_number(N - iteration - 1)
+                        fibonacci_number(N - iteration - 3)
+                        / fibonacci_number(N - iteration - 1)
                 ) * (interval_end - interval_start)
             else:
                 interval_start = point_y
                 point_y = point_z
                 point_z = interval_start + (
-                    fibonacci_number(N - iteration - 2)
-                    / fibonacci_number(N - iteration - 1)
+                        fibonacci_number(N - iteration - 2)
+                        / fibonacci_number(N - iteration - 1)
                 ) * (interval_end - interval_start)
 
             iteration += 1

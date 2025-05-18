@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def f(x):
-    return x**3 + 3 * x**2 - 3
+    return x ** 3 + 3 * x ** 2 - 3
 
 
 a, b = -1, 1
@@ -73,7 +73,7 @@ for i, (a_i, b_i, y_i, c_i, z_i, fy_i, fc_i, fz_i) in enumerate(steps_half):
     plt.axvline(a_i, color="r", ls="--", alpha=0.3)
     plt.axvline(b_i, color="r", ls="--", alpha=0.3)
     plt.plot(
-        [y_i, c_i, z_i], [fy_i, fc_i, fz_i], "o", label=f"iter {i+1}" if i == 0 else ""
+        [y_i, c_i, z_i], [fy_i, fc_i, fz_i], "o", label=f"iter {i + 1}" if i == 0 else ""
     )
 plt.axvline(x_min_half, color="gray", ls="--", label=f"x*={x_min_half:.3f}")
 plt.title("Метод половинного деления")

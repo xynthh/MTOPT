@@ -89,11 +89,11 @@ def newton_method(f, grad_f, hessian, a, b, c, x0, eps1, eps2, max_iter):
                     break
                 t_k /= 2.0
             print(f"Найден шаг t{k} = {t_k}")
-            print(f"Новая точка: x{k+1} = {x_new}, f(x{k+1}) = {f(x_new, a, b, c):.6f}")
+            print(f"Новая точка: x{k + 1} = {x_new}, f(x{k + 1}) = {f(x_new, a, b, c):.6f}")
 
             dx = np.linalg.norm(x_new - x)
             df = abs(f(x_new, a, b, c) - f(x, a, b, c))
-            print(f"||x{k+1} - x{k}|| = {dx:.6f}, |f(x{k+1}) - f(x{k})| = {df:.6f}")
+            print(f"||x{k + 1} - x{k}|| = {dx:.6f}, |f(x{k + 1}) - f(x{k})| = {df:.6f}")
 
             x = x_new
             x_history.append(x.copy())
@@ -128,12 +128,12 @@ def newton_method(f, grad_f, hessian, a, b, c, x0, eps1, eps2, max_iter):
         x_new = x + t_k * d
         if t_k != 1.0:
             print(f"Подобран шаг t{k} = {t_k}")
-        print(f"Новая точка: x{k+1} = {x_new}, f(x{k+1}) = {f(x_new, a, b, c):.6f}")
+        print(f"Новая точка: x{k + 1} = {x_new}, f(x{k + 1}) = {f(x_new, a, b, c):.6f}")
 
         # Шаг 11: Проверить условия останова
         dx = np.linalg.norm(x_new - x)
         df = abs(f(x_new, a, b, c) - f(x, a, b, c))
-        print(f"||x{k+1} - x{k}|| = {dx:.6f}, |f(x{k+1}) - f(x{k})| = {df:.6f}")
+        print(f"||x{k + 1} - x{k}|| = {dx:.6f}, |f(x{k + 1}) - f(x{k})| = {df:.6f}")
 
         if dx < eps2 and df < eps2:
             if k > 0:  # Проверка для k и k-1

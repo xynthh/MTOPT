@@ -3,7 +3,7 @@ import numpy as np
 
 
 def target_function(x):
-    return x**3 + 3 * x**2 - 3
+    return x ** 3 + 3 * x ** 2 - 3
 
 
 def fibonacci_number(n):
@@ -39,10 +39,10 @@ def fibonacci_minimization():
     print(f"Количество итераций N = {N}")
 
     point_y = interval_start + (fibonacci_number(N - 2) / fibonacci_number(N)) * (
-        interval_end - interval_start
+            interval_end - interval_start
     )
     point_z = interval_start + (fibonacci_number(N - 1) / fibonacci_number(N)) * (
-        interval_end - interval_start
+            interval_end - interval_start
     )
 
     print(f"\nНачальные точки:\n  y0 = {point_y}\n  z0 = {point_z}")
@@ -59,15 +59,15 @@ def fibonacci_minimization():
             interval_end = point_z
             point_z = point_y
             point_y = interval_start + (
-                fibonacci_number(N - iteration - 3)
-                / fibonacci_number(N - iteration - 1)
+                    fibonacci_number(N - iteration - 3)
+                    / fibonacci_number(N - iteration - 1)
             ) * (interval_end - interval_start)
         else:
             interval_start = point_y
             point_y = point_z
             point_z = interval_start + (
-                fibonacci_number(N - iteration - 2)
-                / fibonacci_number(N - iteration - 1)
+                    fibonacci_number(N - iteration - 2)
+                    / fibonacci_number(N - iteration - 1)
             ) * (interval_end - interval_start)
 
         iteration += 1

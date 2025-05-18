@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Функция из задания
 def f(x):
-    return x**3 + 3 * x**2 - 3
+    return x ** 3 + 3 * x ** 2 - 3
 
 
 # Интервал и точность
@@ -67,7 +67,7 @@ def golden_section_search_with_plot(f, a0, b0, epsilon):
         plt.axvline(a_i, color="gray", linestyle="--", alpha=0.3)
         plt.axvline(b_i, color="gray", linestyle="--", alpha=0.3)
         plt.plot(
-            [y_i, z_i], [f(y_i), f(z_i)], "o", label=f"Итерация {i+1}" if i == 0 else ""
+            [y_i, z_i], [f(y_i), f(z_i)], "o", label=f"Итерация {i + 1}" if i == 0 else ""
         )
 
     plt.axvline(x_star, color="red", linestyle="--", label=f"x* ≈ {x_star:.3f}")

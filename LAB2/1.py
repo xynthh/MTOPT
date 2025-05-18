@@ -1,6 +1,4 @@
 import math
-import numpy as np
-
 
 # === Глобальные константы ===
 
@@ -149,7 +147,7 @@ def gradient_descent_constant_step(a, b, c, eps_grad, eps_x):
         else:
             previuos_flag = False
 
-        Message = f"9.{k}) Вычислим ||x_{k+1}-x_{k}|| = {arg_diff:.2f} (должно быть < {eps_x:.2f}) и |f(x_{k+1}) - f(x_{k})| = {func_diff:.2f} (должно быть < {eps_x:.2f})"
+        Message = f"9.{k}) Вычислим ||x_{k + 1}-x_{k}|| = {arg_diff:.2f} (должно быть < {eps_x:.2f}) и |f(x_{k + 1}) - f(x_{k})| = {func_diff:.2f} (должно быть < {eps_x:.2f})"
         print(Message + "\n")
         x = x_new.copy()
         k += 1
@@ -250,7 +248,7 @@ def gradient_descent_steepest(a, b, c, eps_grad, eps_x):
         else:
             previuos_flag = False
 
-        Message = f"9.{k}) Вычислим ||x_{k+1}-x_{k}|| = {arg_diff:.2f} (должно быть < {eps_x:.2f}) и |f(x_{k+1}) - f(x_{k})| = {func_diff:.2f} (должно быть < {eps_x:.2f})"
+        Message = f"9.{k}) Вычислим ||x_{k + 1}-x_{k}|| = {arg_diff:.2f} (должно быть < {eps_x:.2f}) и |f(x_{k + 1}) - f(x_{k})| = {func_diff:.2f} (должно быть < {eps_x:.2f})"
         print(Message + "\n")
         x = x_new.copy()
         k += 1
